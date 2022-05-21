@@ -19,18 +19,20 @@ then you can bring up iox with this command
 ./target/debug/influxdb_iox run all-in-one --catalog-dsn postgres:///iox_shared --data-dir=~/iox_data
 ```
 
-then you can bring up iox with this command
+[or] you can bring up iox with this command
 
 ```rust
 iox --catalog-dsn postgres:///iox_shared --data-dir=/Users/ma/j/tmp06/iox_data
-```
-
-```rust
-cargo run -- write postgresql:///iox_shared ./test_fixtures/lineproto/metrics.lp --host http://localhost:8081
 ```
 
 and write data out with this command
 
 ```rust
 cargo run -- write postgresql:///iox_shared ./test_fixtures/lineproto/metrics.lp --host http://localhost:8081
+```
+
+[or] write data out with this command
+
+```rust
+iox write postgresql:///iox_shared ./test_fixtures/lineproto/metrics.lp --host http://localhost:8081
 ```
