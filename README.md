@@ -6,6 +6,7 @@ and if it does not go ahead and create it.
 psql -l
 DATABASE_URL=postgres:///iox_shared sqlx database create
 psql -l
+```
 
 then you can bring up iox with this command
 
