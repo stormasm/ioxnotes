@@ -1,4 +1,7 @@
 
+##### Persist compacted data to parquet files in object storage
+ingester/src/persist.rs
+
 ### where is parquet referenced in iox
 
 * compactor
