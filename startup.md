@@ -31,6 +31,16 @@ DATABASE_URL=postgres:///iox_shared sqlx database create
 
 Run the following two commands at the top level influxdb_iox
 
+* ioxdbcreate
+* ioxdbstart
+
+```rust
+alias ioxdbcreate='DATABASE_URL=postgres:///iox_shared sqlx database create'
+alias ioxdbstart='ioxg; cargo run -q -- catalog setup; cargo run -- catalog topic update iox-shared'
+```
+
+The same two commands as above without the alias definitions
+
 ```rust
 cargo run -q -- catalog setup
 cargo run -- catalog topic update iox-shared
