@@ -23,12 +23,6 @@ psql postgres
 drop database iox_shared
 ```
 
-Then go ahead and create the database
-
-```rust
-DATABASE_URL=postgres:///iox_shared sqlx database create
-```
-
 Run the following two commands at the top level influxdb_iox
 
 * ioxdbcreate
@@ -41,6 +35,12 @@ alias ioxdbstart='ioxg; cargo run -q -- catalog setup; cargo run -- catalog topi
 
 The same two commands as above without the alias definitions
 
+Then go ahead and create the database
+
+```rust
+DATABASE_URL=postgres:///iox_shared sqlx database create
+```
+
 ```rust
 cargo run -q -- catalog setup
 cargo run -- catalog topic update iox-shared
@@ -51,7 +51,6 @@ Then cd iox_catalog and run
 ```rust
 cargo test or cnr
 ```
-
 
 ### References
 * [youtube](https://github.com/stormasm/youtube/blob/main/cs/iox.md)
