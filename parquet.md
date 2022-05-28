@@ -7,8 +7,10 @@
 //use object_store::{memory::InMemory, DynObjectStore};
 use object_store::{local::LocalFileSystem, DynObjectStore};
 
-//Arc::new(InMemory::new())
-Arc::new(LocalFileSystem::new("/Users/ma/j/tmp33/os"))
+fn object_store() -> Arc<DynObjectStore> {
+    //Arc::new(InMemory::new())
+    Arc::new(LocalFileSystem::new("/Users/ma/j/tmp33/os"))
+}
 ```
 
 See parquet_file/src/metadata.rs for details on the flow of the data
