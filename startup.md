@@ -35,11 +35,13 @@ alias ioxdbstart='ioxg; cargo run -q -- catalog setup; cargo run -- catalog topi
 
 The same two commands as above without the alias definitions
 
-Then go ahead and create the database
+#### create the database
 
 ```rust
 DATABASE_URL=postgres:///iox_shared sqlx database create
 ```
+
+#### run the commands
 
 ```rust
 cargo run -q -- catalog setup
