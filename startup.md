@@ -16,6 +16,13 @@ If *sqlx-cli* is not installed go ahead and do it...
 cargo install sqlx-cli
 ```
 
+If you have any issues and the db was already installed and you have to drop the database run this command
+
+```rust
+psql postgres
+drop database iox_shared
+```
+
 Then go ahead and create the database
 
 ```rust
