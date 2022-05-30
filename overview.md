@@ -1,4 +1,3 @@
-IOx router role implementation.
 
 #### An IOx router is responsible for:
 
