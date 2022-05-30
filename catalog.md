@@ -3,8 +3,7 @@ So the goal here is to learn about how the catalog works so that we can port the
 
 ### Who is a user of the iox_catalog ?
 
-#### ingester
-mainly in data.rs
+* ingester (mainly in data.rs)
 
 ##### References
 
