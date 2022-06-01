@@ -1,3 +1,32 @@
+/// Provides access to raw `QueryChunk` data as an
+/// asynchronous stream of `RecordBatch`es filtered by a *required*
+/// predicate. Note that not all chunks can evaluate all types of
+/// predicates and this function will return an error
+/// if requested to evaluate with a predicate that is not supported
+///
+/// This is the analog of the `TableProvider` in DataFusion
+///
+/// The reason we can't simply use the `TableProvider` trait
+/// directly is that the data for a particular Table lives in
+/// several chunks within a partition, so there needs to be an
+/// implementation of `TableProvider` that stitches together the
+/// streams from several different `QueryChunk`s.
+
+```rust
+fn read_filter(
+    &self,
+    ctx: IOxSessionContext,
+    predicate: &Predicate,
+    selection: Selection<'_>,
+) -> Result<SendableRecordBatchStream, QueryChunkError>;
+
+/// Returns chunk type which is either MUB, RUB, OS
+fn chunk_type(&self) -> &str;
+
+/// Order of this chunk relative to other overlapping chunks.
+fn order(&self) -> ChunkOrder;
+}
+```
 
 * core/src/datasource/datasource.rs
 
