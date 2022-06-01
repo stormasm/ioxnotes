@@ -1,5 +1,5 @@
 
-* core/src/datasource/mod.rs
+* core/src/datasource/datasource.rs
 
 ```rust
 /// Source table
