@@ -1,5 +1,5 @@
 
-*** iox_query/src/lib.rs
+* iox_query/src/lib.rs
 
 ```rust
 /// Provides access to raw `QueryChunk` data as an
