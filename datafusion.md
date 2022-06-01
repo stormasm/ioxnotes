@@ -1,7 +1,7 @@
 
-* iox_query/src/lib.rs
-
 ### Iox
+
+* iox_query/src/lib.rs
 
 ```rust
 /// Collection of data that shares the same partition key
