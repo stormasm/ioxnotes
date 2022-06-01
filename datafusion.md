@@ -1,35 +1,85 @@
 
 * iox_query/src/lib.rs
 
+### Iox
+
 ```rust
-/// Provides access to raw `QueryChunk` data as an
-/// asynchronous stream of `RecordBatch`es filtered by a *required*
-/// predicate. Note that not all chunks can evaluate all types of
-/// predicates and this function will return an error
-/// if requested to evaluate with a predicate that is not supported
-///
-/// This is the analog of the `TableProvider` in DataFusion
-///
-/// The reason we can't simply use the `TableProvider` trait
-/// directly is that the data for a particular Table lives in
-/// several chunks within a partition, so there needs to be an
-/// implementation of `TableProvider` that stitches together the
-/// streams from several different `QueryChunk`s.
+/// Collection of data that shares the same partition key
+pub trait QueryChunk: QueryChunkMeta + Debug + Send + Sync + 'static {
+    /// returns the Id of this chunk. Ids are unique within a
+    /// particular partition.
+    fn id(&self) -> ChunkId;
 
-fn read_filter(
-    &self,
-    ctx: IOxSessionContext,
-    predicate: &Predicate,
-    selection: Selection<'_>,
-) -> Result<SendableRecordBatchStream, QueryChunkError>;
+    /// Returns the name of the table stored in this chunk
+    fn table_name(&self) -> &str;
 
-/// Returns chunk type which is either MUB, RUB, OS
-fn chunk_type(&self) -> &str;
+    /// Returns true if the chunk may contain a duplicate "primary
+    /// key" within itself
+    fn may_contain_pk_duplicates(&self) -> bool;
 
-/// Order of this chunk relative to other overlapping chunks.
-fn order(&self) -> ChunkOrder;
+    /// Returns the result of applying the `predicate` to the chunk
+    /// using an efficient, but inexact method, based on metadata.
+    ///
+    /// NOTE: This method is suitable for calling during planning, and
+    /// may return PredicateMatch::Unknown for certain types of
+    /// predicates.
+    fn apply_predicate_to_metadata(
+        &self,
+        predicate: &Predicate,
+    ) -> Result<PredicateMatch, QueryChunkError>;
+
+    /// Returns a set of Strings with column names from the specified
+    /// table that have at least one row that matches `predicate`, if
+    /// the predicate can be evaluated entirely on the metadata of
+    /// this Chunk. Returns `None` otherwise
+    fn column_names(
+        &self,
+        ctx: IOxSessionContext,
+        predicate: &Predicate,
+        columns: Selection<'_>,
+    ) -> Result<Option<StringSet>, QueryChunkError>;
+
+    /// Return a set of Strings containing the distinct values in the
+    /// specified columns. If the predicate can be evaluated entirely
+    /// on the metadata of this Chunk. Returns `None` otherwise
+    ///
+    /// The requested columns must all have String type.
+    fn column_values(
+        &self,
+        ctx: IOxSessionContext,
+        column_name: &str,
+        predicate: &Predicate,
+    ) -> Result<Option<StringSet>, QueryChunkError>;
+
+    /// Provides access to raw `QueryChunk` data as an
+    /// asynchronous stream of `RecordBatch`es filtered by a *required*
+    /// predicate. Note that not all chunks can evaluate all types of
+    /// predicates and this function will return an error
+    /// if requested to evaluate with a predicate that is not supported
+    ///
+    /// This is the analog of the `TableProvider` in DataFusion
+    ///
+    /// The reason we can't simply use the `TableProvider` trait
+    /// directly is that the data for a particular Table lives in
+    /// several chunks within a partition, so there needs to be an
+    /// implementation of `TableProvider` that stitches together the
+    /// streams from several different `QueryChunk`s.
+    fn read_filter(
+        &self,
+        ctx: IOxSessionContext,
+        predicate: &Predicate,
+        selection: Selection<'_>,
+    ) -> Result<SendableRecordBatchStream, QueryChunkError>;
+
+    /// Returns chunk type which is either MUB, RUB, OS
+    fn chunk_type(&self) -> &str;
+
+    /// Order of this chunk relative to other overlapping chunks.
+    fn order(&self) -> ChunkOrder;
 }
 ```
+
+### DataFusion
 
 * core/src/datasource/datasource.rs
 
