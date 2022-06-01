@@ -1,3 +1,7 @@
+
+*** iox_query/src/lib.rs
+
+```rust
 /// Provides access to raw `QueryChunk` data as an
 /// asynchronous stream of `RecordBatch`es filtered by a *required*
 /// predicate. Note that not all chunks can evaluate all types of
@@ -12,7 +16,6 @@
 /// implementation of `TableProvider` that stitches together the
 /// streams from several different `QueryChunk`s.
 
-```rust
 fn read_filter(
     &self,
     ctx: IOxSessionContext,
