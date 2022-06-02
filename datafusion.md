@@ -223,6 +223,18 @@ pub trait ExecutionPlan: Debug + Send + Sync {
     /// Returns the global output statistics for this `ExecutionPlan` node.
     fn statistics(&self) -> Statistics;
 }
+
+/// Partitioning schemes supported by operators.
+#[derive(Debug, Clone)]
+pub enum Partitioning {
+    /// Allocate batches using a round-robin algorithm and the specified number of partitions
+    RoundRobinBatch(usize),
+    /// Allocate rows based on a hash of one of more expressions and the specified number of
+    /// partitions
+    Hash(Vec<Arc<dyn PhysicalExpr>>, usize),
+    /// Unknown partitioning scheme with a known number of partitions
+    UnknownPartitioning(usize),
+}
 ```
 
 * core/src/datasource/datasource.rs
