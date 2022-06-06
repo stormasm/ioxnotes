@@ -15,3 +15,6 @@ Or you can
 alias ioxioxt='ioxg; cd influxdb_iox/tests/end_to_end_cases'
 ct
 ```
+
+end_to_end_cases are located here:   
+* influxdb_iox/tests/end_to_end_cases
