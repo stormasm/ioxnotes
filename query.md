@@ -22,3 +22,13 @@ Now you are in the sql client.
 * select * from h2o_temperature;
 * select * from h2o_temperature where state = 'WA';
 * select * from h2o_temperature where state = 'CA';
+
+## Code related to querying
+
+##### test_helpers_end_to_end/src/client.rs
+
+* try_run_query
+
+##### influxdb_iox_client/src/client/flight.rs
+
+* perform_query
