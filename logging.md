@@ -3,6 +3,10 @@ Iox with logging, note the run all-in-one is needed for logging to work
 ```rust
 alias ioxinfo='iox run all-in-one --log-filter info'
 alias ioxdebug='iox run all-in-one --log-filter debug'
+
+### No h2 logging
+
+alias ioxdebugnoh2='iox run all-in-one --log-filter debug,hyper::proto::h1=info,h2=info'
 ```
 
 ##### Turn off debug logging in noisy compactor
