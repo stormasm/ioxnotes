@@ -21,4 +21,8 @@ compactor/src/compact.rs
 );
 ```
 
-great...
+For more details on logging
+
+[Contributing](https://github.com/influxdata/influxdb_iox/blob/main/CONTRIBUTING.md)
+
+* specifically talks about issues with h2 (more research needed)
