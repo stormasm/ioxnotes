@@ -6,8 +6,6 @@ iox
 
 Bring up iox with logging
 ```
-### No h2 logging
-
 alias ioxdebugnoh2='iox run all-in-one --log-filter debug,hyper::proto::h1=info,h2=info'
 ```
 
