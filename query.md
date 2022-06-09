@@ -4,6 +4,14 @@ Bring up iox
 iox
 ```
 
+Bring up iox with logging
+```
+### No h2 logging
+
+alias ioxdebugnoh2='iox run all-in-one --log-filter debug,hyper::proto::h1=info,h2=info'
+```
+
+
 Write out the temp data...
 ```rust
 alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
