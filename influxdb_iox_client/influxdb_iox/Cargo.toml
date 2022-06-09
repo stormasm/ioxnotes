@@ -1,0 +1,116 @@
+[workspace]
+# In alphabetical order
+members = [
+    "arrow_util",
+#    "backoff",
+#    "cache_system",
+#    "clap_blocks",
+    "client_util",
+#    "compactor",
+    "data_types",
+    "datafusion",
+    "datafusion_util",
+    "dml",
+#    "executor",
+    "generated_types",
+#    "grpc-router",
+#    "grpc-router-test-gen",
+#    "influxdb_iox",
+    "influxdb_iox_client",
+#    "influxdb_line_protocol",
+#    "influxdb_storage_client",
+#    "influxdb_tsm",
+#    "influxdb2_client",
+#    "influxrpc_parser",
+#    "ingester",
+#    "iox_catalog",
+#    "iox_data_generator",
+#    "iox_query",
+#    "iox_tests",
+    "iox_time",
+#    "ioxd_common",
+#    "ioxd_compactor",
+#    "ioxd_ingester",
+#    "ioxd_querier",
+#    "ioxd_router",
+#    "ioxd_test",
+#    "logfmt",
+#    "metric",
+#    "metric_exporters",
+    "mutable_batch",
+    "mutable_batch_lp",
+    "mutable_batch_pb",
+#    "mutable_batch_tests",
+#    "object_store_metrics",
+    "observability_deps",
+#    "packers",
+#    "panic_logging",
+#    "parquet_file",
+    "predicate",
+#    "querier",
+#    "query_functions",
+#    "query_tests",
+#    "read_buffer",
+#    "router",
+    "schema",
+#    "service_common",
+#    "service_grpc_influxrpc",
+#    "service_grpc_flight",
+#    "service_grpc_object_store",
+#    "service_grpc_catalog",
+#    "service_grpc_schema",
+#    "service_grpc_testing",
+#    "sqlx-hotswap-pool",
+#    "test_helpers",
+#    "test_helpers_end_to_end",
+    "trace",
+#    "trace_exporters",
+#    "trace_http",
+#    "tracker",
+#    "trogging",
+    "workspace-hack",
+    "write_buffer",
+#    "write_summary",
+]
+default-members = ["influxdb_iox"]
+
+resolver = "2"
+
+exclude = [
+    "*.md",
+    "*.txt",
+    ".circleci/",
+    ".editorconfig",
+    ".git*",
+    ".github/",
+    ".kodiak.toml",
+    "Dockerfile*",
+    "LICENSE*",
+    "buf.yaml",
+    "docker/",
+    "docs/",
+    "massif.out.*",
+    "perf/",
+    "scripts/",
+    "test_bench/",
+    "test_fixtures/",
+    "tools/",
+]
+
+# This profile optimizes for runtime performance and small binary size at the expense of longer
+# build times. It's most suitable for final release builds.
+[profile.release]
+codegen-units = 16
+debug = true
+lto = "thin"
+
+[profile.bench]
+debug = true
+
+# This profile optimizes for short build times at the expense of larger binary size and slower
+# runtime performance. It's most suitable for development iterations.
+[profile.quick-release]
+inherits = "release"
+codegen-units = 16
+lto = false
+incremental = true
