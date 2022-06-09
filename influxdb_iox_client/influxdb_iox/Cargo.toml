@@ -72,7 +72,7 @@ members = [
     "write_buffer",
 #    "write_summary",
 ]
-default-members = ["influxdb_iox"]
+default-members = ["influxdb_iox_client"]
 
 resolver = "2"
 
