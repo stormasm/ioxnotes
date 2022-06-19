@@ -37,6 +37,12 @@ select * from h2o_temperature;
 set format {json, csv, pretty};
 ```
 
+For more details go
+[here](./query.md)
+
+For an alternative iox sql client go
+[here](https://github.com/stormasm/iox_sql_v00)
+
 ### How to suppress logging in the main repo
 
 ##### compactor/src/compact.rs
