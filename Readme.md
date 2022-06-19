@@ -1,9 +1,9 @@
 
 So there are two different repos working with each other...
 
-There is the main repo
+1) There is the main repo
 
-There is my repo with the iox sql client
+2) There is my repo with the iox sql client
 
 Step 1 is to turn off the logging in the main repo so I can see what is going on without having a bunch of log messages rolling along
 
@@ -52,3 +52,7 @@ turn off
 
 turn off
 * debug!("fetching write buffer watermark");
+
+### Details on how to load data into the database
+
+* [query.md](https://github.com/stormasm/ioxnotes/blob/main/query.md)
