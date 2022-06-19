@@ -28,6 +28,9 @@ Now you are in the sql client.
 * select * from h2o_temperature;
 * select * from h2o_temperature where state = 'WA';
 * select * from h2o_temperature where state = 'CA';
+* set format csv;
+* set format json;
+* set format pretty;
 
 ## Code related to querying
 

@@ -34,6 +34,7 @@ Once inside the iox sql client type these commands, note eventually I will build
 ```rust
 use postgresql:///iox_shared;
 select * from h2o_temperature;
+set format {json, csv, pretty};
 ```
 
 ### How to suppress logging in the main repo
