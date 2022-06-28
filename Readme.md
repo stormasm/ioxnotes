@@ -1,3 +1,27 @@
+Everytime you update
+[stormasm/influxdb_iox](https://github.com/stormasm/influxdb_iox)
+
+if you get an error like this one
+
+```rust
+Server command failed: Catalog error: database setup error: while executing migrations: error returned from database: column "column_set" of relation "parquet_file" contains null values
+```
+
+If you have any issues and the db was already installed and you have to drop the database run this command
+
+```rust
+psql postgres
+drop database iox_shared
+```
+
+Run the following two commands at the top level influxdb_iox
+
+* ioxdbcreate
+* ioxdbstart
+
+For more details go
+[here](https://github.com/stormasm/ioxnotes/blob/main/startup.md) or
+[here](https://github.com/influxdata/influxdb_iox/tree/main/iox_catalog)
 
 So there are two different repos working with each other...
 
