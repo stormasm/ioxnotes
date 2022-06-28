@@ -29,6 +29,8 @@ For more details go
 [here](https://github.com/stormasm/ioxnotes/blob/main/startup.md) or
 [here](https://github.com/influxdata/influxdb_iox/tree/main/iox_catalog)
 
+### More details after you have iox up and running
+
 So there are two different repos working with each other...
 
 1) There is the main repo
