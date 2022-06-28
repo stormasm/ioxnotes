@@ -7,6 +7,34 @@ with the command
 alias gpiox='git pull https://github.com/influxdata/influxdb_iox main'
 ```
 
+### INFLUXDB_IOX_DB_DIR
+
+To see where this is referenced check this out
+
+```rust
+ioxg
+rg INFLUXDB_IOX_DB_DIR
+```
+
+The current value of this environment variable can be gotten this way
+
+```rust
+env | grep INFLUXDB_IOX
+```
+
+To clean up this directory simply go to this directory
+
+```rust
+ioxd
+INFLUXDB_IOX_DB_DIR=/Users/ma/j/tmp22/iox_datadir
+```
+
+And everything below this directory gets blown away
+
+```rust
+rm -fr *
+```
+
 if you get an error like this one
 
 ```rust
