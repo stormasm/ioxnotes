@@ -1,6 +1,12 @@
 Everytime you update
 [stormasm/influxdb_iox](https://github.com/stormasm/influxdb_iox)
 
+with the command
+
+```rust
+alias gpiox='git pull https://github.com/influxdata/influxdb_iox main'
+```
+
 if you get an error like this one
 
 ```rust
