@@ -5,7 +5,7 @@ Note forks exist in these spots
 
  * [angermanmichael](https://github.com/angermanmichael/nushell)
  
- These are the crates from iox that get added to nushell
+ These are the crates from iox that get added to nushell.  You will note at the moment the number is 20 crates.
  
  	"crates/arrow_util",  
 	"crates/client_util",  
