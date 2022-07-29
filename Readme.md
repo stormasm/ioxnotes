@@ -59,6 +59,13 @@ For more details go
 
 ### After you have iox up and running
 
+Bring up iox by simply typing iox
+
+```rust
+alias ioxg='cd ~/j/tmp06/influxdb_iox'
+alias iox='ioxg; ./target/debug/influxdb_iox'
+```
+
 Write the data out to Iox
 
 ```rust
