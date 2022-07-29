@@ -83,6 +83,7 @@ alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/linepro
 
 Now review the data you just wrote out to Iox
 
+* show namespaces;
 * use postgresql:///iox_shared;
 * show tables;
 * select * from h2o_temperature;
