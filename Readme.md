@@ -73,7 +73,7 @@ alias ioxsql='iox sql'
 ```
 * show namespaces;
 
-There should be no namespaces at this moment in time, proving to you that you are starting with a clean slate :)
+There should be no namespaces at this moment in time, proving to you that you are starting with a clean slate :smile:
 
 Write the data out to Iox
 
