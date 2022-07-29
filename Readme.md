@@ -59,18 +59,31 @@ For more details go
 
 ### After you have iox up and running
 
-Bring up iox by simply typing iox
+Bring up iox by simply typing **iox**
 
 ```rust
 alias ioxg='cd ~/j/tmp06/influxdb_iox'
 alias iox='ioxg; ./target/debug/influxdb_iox'
 ```
 
+Bring up the Iox client by simply typing **ioxsql**
+
+```rust
+alias ioxsql='iox sql'
+```
+* show namespaces;
+
+There should be no namespaces at this moment in time, proving to you that you are starting with a clean slate :)
+
 Write the data out to Iox
 
 ```rust
 alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
 ```
+
+* use postgresql:///iox_shared;
+* show tables;
+* select * from h2o_temperature;
 
 ### More details
 
