@@ -81,6 +81,8 @@ Write the data out to Iox
 alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
 ```
 
+Now review the data you just wrote out to Iox
+
 * use postgresql:///iox_shared;
 * show tables;
 * select * from h2o_temperature;
