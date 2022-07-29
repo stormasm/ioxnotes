@@ -1,9 +1,18 @@
 
+Steps to integrate nushell into iox.
+
+* Modify the top level iox Cargo.toml file and add the crate **iox_nu**
+
+### The iox_nu crate
+
+* Grab a copy of the nushell released src code
+* Get the docs and src directories from top level nushell and put them in the iox_nu crate.
+* Grab the Cargo.toml file from top level nushell and **modify accordingly** similar to a previous version of this code.
+* Copy over the Readme.md file from a previous version of this code.
+
+### The nu_iox crate
+
 See the Cargo.toml files to see what crates from iox get added to nushell so that the influxdb_iox_client fires up correctly...
-
-Note forks exist in these spots
-
- * [angermanmichael](https://github.com/angermanmichael/nushell)
  
  These are the crates from iox that get added to nushell.  You will note at the moment the number is 20 crates.
  
