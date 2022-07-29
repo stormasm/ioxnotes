@@ -59,6 +59,14 @@ For more details go
 
 ### After you have iox up and running
 
+Write the data out to Iox
+
+```rust
+alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
+```
+
+### More details
+
 So there are two different repos working with each other...
 
 1) There is the main repo
