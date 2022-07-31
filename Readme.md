@@ -46,6 +46,8 @@ If you have any issues and the db was already installed and you have to drop the
 ```rust
 psql postgres
 drop database iox_shared
+\list
+\q
 ```
 
 Run the following two commands at the top level influxdb_iox
