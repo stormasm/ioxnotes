@@ -6,6 +6,14 @@ iox
 ioxrun sql
 ```
 
+### How to bring up Iox
+
+Besides running the binary you can do this
+
+```rust
+cargo run -- -vv
+```
+
 ### Postgresql Notes
 
 [catalog notes](https://github.com/influxdata/influxdb_iox/tree/main/iox_catalog)
