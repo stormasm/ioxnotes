@@ -15,12 +15,12 @@
  [pr5210](https://github.com/influxdata/influxdb_iox/commit/de22b6b080b66d89f0c44cccdf1b9dd7ed124b9f)
  
  * [July 27](https://github.com/influxdata/influxdb_iox/pull/5225) :
- [pr5225](https://github.com/influxdata/influxdb_iox/commit/7eebe061a69b20430d911383a199b381c4e4fbfa)
+ [pr5225](https://github.com/influxdata/influxdb_iox/commit/7eebe061a69b20430d911383a199b381c4e4fbfa) **fix: reduce log verbosity for found compaction candidates message**
  
- ### Broken here
+ ### This is where it breaks pr5230
  
  * [July 27](https://github.com/influxdata/influxdb_iox/pull/5230) :
- [pr5230](https://github.com/influxdata/influxdb_iox/commit/fcce00bf0921622eb1d1334865b2b8fc5fa6f7ed)
+ [pr5230](https://github.com/influxdata/influxdb_iox/commit/fcce00bf0921622eb1d1334865b2b8fc5fa6f7ed) **feat: run many compact partitions in parallel**
  
  * [July 28](https://github.com/influxdata/influxdb_iox/pull/5229) :
  [pr5229](https://github.com/influxdata/influxdb_iox/commit/9215a534d0fd241442c40db995884b6d899800eb)
