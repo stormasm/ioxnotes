@@ -7,3 +7,6 @@
  
  * [July 19](https://github.com/influxdata/influxdb_iox/pull/5134) :
  [pr5134](https://github.com/influxdata/influxdb_iox/commit/b8d9799a268634b4a8226554c8950a480b9760b0)
+ 
+ * [July 25](https://github.com/influxdata/influxdb_iox/pull/5206) :
+ [pr5206](https://github.com/influxdata/influxdb_iox/commit/d05f383a986414c6576a2abcb2a34fe5bb1a8b25)
