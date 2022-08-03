@@ -14,6 +14,9 @@
  * [July 26](https://github.com/influxdata/influxdb_iox/pull/5210) :
  [pr5210](https://github.com/influxdata/influxdb_iox/commit/de22b6b080b66d89f0c44cccdf1b9dd7ed124b9f)
  
+ * [July 27](https://github.com/influxdata/influxdb_iox/pull/5225) :
+ [pr5225](https://github.com/influxdata/influxdb_iox/commit/7eebe061a69b20430d911383a199b381c4e4fbfa)
+ 
  ### Broken here
  
  * [July 27](https://github.com/influxdata/influxdb_iox/pull/5230) :
