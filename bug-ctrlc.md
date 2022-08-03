@@ -1,4 +1,11 @@
 
+So it breaks on the commit:
+
+* [run many compact partitions in parallel](https://github.com/influxdata/influxdb_iox/pull/5230)
+
+Now I can figure out what to do...
+
+
 
 ### Works here
 
