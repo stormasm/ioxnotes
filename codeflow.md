@@ -13,6 +13,23 @@ An IOx router is responsible for:
 * Applying sharding logic.
 * Push resulting operations into the appropriate kafka topics.
 
+
+### There are two paths for writes
+
+* router::server::grpc
+* router::server::http
+
+### This is what happens with the iox write
+
+```rust
+alias ioxwtemp='ioxg; iox write postgresql:///iox_shared ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
+alias ioxwtemplums='ioxg; iox write plums ./test_fixtures/lineproto/temperature.lp --host http://localhost:8081'
+```
+
+```rust
+2022-08-10T16:50:38.143434Z DEBUG router::server::grpc: routing grpc write num_tables=1 namespace=postgresql:///iox_shared
+```
+
 ### This is what happens with the low_card data
 
 ```rust
