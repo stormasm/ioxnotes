@@ -1,4 +1,23 @@
 
+### Router
+
+```rust
+router/src/lib.rs
+//! IOx router role implementation.
+//!
+//! An IOx router is responsible for:
+//!
+//! * Creating IOx namespaces & synchronising them within the catalog.
+//! * Handling writes:
+//!     * Receiving IOx write/delete requests via HTTP and gRPC endpoints.
+//!     * Enforcing schema validation & synchronising it within the catalog.
+//!     * Deriving the partition key of each DML operation.
+//!     * Applying sharding logic.
+//!     * Push resulting operations into the appropriate kafka topics.
+```
+
+### This is what happens with the low_card data
+
 ```rust
 2022-08-10T16:34:15.550988Z DEBUG ioxd_common::http: Processing request request=Request { method: POST, uri: /api/v2/write?org=26f7e5a4b7be365b&bucket=917b97a92e883afc, version: HTTP/1.1, headers: {"accept": "*/*", "host": "localhost:8080", "content-length": "930"}, body: Body(Streaming) }
 
