@@ -1,4 +1,23 @@
 
+```rust
+2022-08-10T16:34:15.550988Z DEBUG ioxd_common::http: Processing request request=Request { method: POST, uri: /api/v2/write?org=26f7e5a4b7be365b&bucket=917b97a92e883afc, version: HTTP/1.1, headers: {"accept": "*/*", "host": "localhost:8080", "content-length": "930"}, body: Body(Streaming) }
+
+2022-08-10T16:34:15.558328Z DEBUG router::server::http: routing write num_lines=10 num_fields=10 num_tables=10 precision=Nanoseconds body_size=930 namespace=26f7e5a4b7be365b_917b97a92e883afc org=26f7e5a4b7be365b bucket=917b97a92e883afc
+
+2022-08-10T16:34:15.580738Z DEBUG write_summary: Creating write summary metas=[[DmlMeta { sequence: Some(Sequence { sequencer_id: 0, sequence_number: SequenceNumber(6) }), producer_ts: Some(2022-08-10T16:34:15.566325+00:00), span_ctx: None, bytes_read: Some(3752) }]]
+
+2022-08-10T16:34:15.582456Z DEBUG ioxd_common::http: Successfully processed request response=Response { status: 204, version: HTTP/1.1, headers: {"x-iox-write-token": "eyJzZXF1ZW5jZXJzIjpbeyJzZXF1ZW5jZU51bWJlcnMiOlsiNiJdfV19"}, body: Body(Empty) }
+
+2022-08-10T16:34:15.585254Z DEBUG ioxd_common::http: Processing request request=Request { method: POST, uri: /api/v2/write?org=26f7e5a4b7be365b&bucket=917b97a92e883afc, version: HTTP/1.1, headers: {"accept": "*/*", "host": "localhost:8080", "content-length": "940"}, body: Body(Streaming) }
+
+2022-08-10T16:34:15.590312Z DEBUG router::server::http: routing write num_lines=10 num_fields=10 num_tables=10 precision=Nanoseconds body_size=940 namespace=26f7e5a4b7be365b_917b97a92e883afc org=26f7e5a4b7be365b bucket=917b97a92e883afc
+
+2022-08-10T16:34:15.598801Z DEBUG write_summary: Creating write summary metas=[[DmlMeta { sequence: Some(Sequence { sequencer_id: 0, sequence_number: SequenceNumber(7) }), producer_ts: Some(2022-08-10T16:34:15.594217+00:00), span_ctx: None, bytes_read: Some(3752) }]]
+
+2022-08-10T16:34:15.599165Z DEBUG ioxd_common::http: Successfully processed request response=Response { status: 204, version: HTTP/1.1, headers: {"x-iox-write-token": "eyJzZXF1ZW5jZXJzIjpbeyJzZXF1ZW5jZU51bWJlcnMiOlsiNyJdfV19"}, body: Body(Empty) }
+```
+
+
 ### This is how the data initially gets into Iox
 
 What is DML in database?
