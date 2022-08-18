@@ -7,6 +7,10 @@ with the command
 alias gpiox='git pull https://github.com/influxdata/influxdb_iox main'
 ```
 
+### Make the following possible code changes
+
+[code changes](./codechanges.md)
+
 ### INFLUXDB_IOX_DB_DIR
 
 To see where this is referenced check this out
