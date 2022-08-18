@@ -9,7 +9,7 @@ alias gpiox='git pull https://github.com/influxdata/influxdb_iox main'
 
 ### Make the following possible code changes
 
-[code changes](./codechanges.md)
+* [code changes](./codechanges.md)
 
 ### INFLUXDB_IOX_DB_DIR
 
