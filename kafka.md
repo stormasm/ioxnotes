@@ -27,5 +27,7 @@ alias tk1='rsk; TEST_INTEGRATION=1 TEST_BROKER_IMPL=kafka KAFKA_CONNECT=localhos
 
 ### References
 
-[installing kafka on homebrew](https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273)
+* [Building a Kafka Client](https://thenewstack.io/building-a-simple-pure-rust-async-apache-kafka-client/)
+
+* [installing kafka on homebrew](https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273)
 
