@@ -1,4 +1,10 @@
 
+To run the redpanda console
+
+    docker compose up
+
+### rpk commands
+
 * rpk container start
 * rpk container stop
 * rpk container purge
