@@ -17,19 +17,24 @@ installation guide here: https://vectorized.io/documentation/setup-guide/
 
 ### After Starting
 
-Downloading latest version of Redpanda
-Starting cluster
-Waiting for the cluster to be ready...
+Downloading latest version of Redpanda   
+Starting cluster   
+Waiting for the cluster to be ready...   
+
+```rust
   NODE ID  ADDRESS          
   0        127.0.0.1:57267  
   2        127.0.0.1:57268  
   1        127.0.0.1:57263  
+```
 
-Cluster started! You may use rpk to interact with it. E.g:
+Cluster started! You may use rpk to interact with it. E.g:   
 
   rpk cluster info --brokers 127.0.0.1:57267,127.0.0.1:57268,127.0.0.1:57263
 
 You may also set an environment variable with the comma-separated list of broker addresses:
 
+```rust
   export REDPANDA_BROKERS="127.0.0.1:57267,127.0.0.1:57268,127.0.0.1:57263"
   rpk cluster info
+```
