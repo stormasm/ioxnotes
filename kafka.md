@@ -29,4 +29,4 @@ alias tk1='rsk; TEST_INTEGRATION=1 TEST_BROKER_IMPL=kafka KAFKA_CONNECT=localhos
 
 * [building a kafka client](https://thenewstack.io/building-a-simple-pure-rust-async-apache-kafka-client/)
 * [installing kafka on homebrew](https://medium.com/@Ankitthakur/apache-kafka-installation-on-mac-using-homebrew-a367cdefd273)
-
+* [using kafka command line tools](https://hevodata.com/learn/kafka-cli-commands/)
