@@ -1,3 +1,8 @@
+
+* rpk container start
+* rpk container stop
+* rpk container purge
+
 ### After brew install
 
 You can start a 3 node cluster locally using the following command: 
