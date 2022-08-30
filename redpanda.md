@@ -1,3 +1,5 @@
+### After brew install
+
 You can start a 3 node cluster locally using the following command: 
 
     rpk container start -n 3
@@ -12,3 +14,22 @@ When done, you can stop and delete the cluster with the following command:
 
 For information on how to setup production evironments, check out our
 installation guide here: https://vectorized.io/documentation/setup-guide/
+
+### After Starting
+
+Downloading latest version of Redpanda
+Starting cluster
+Waiting for the cluster to be ready...
+  NODE ID  ADDRESS          
+  0        127.0.0.1:57267  
+  2        127.0.0.1:57268  
+  1        127.0.0.1:57263  
+
+Cluster started! You may use rpk to interact with it. E.g:
+
+  rpk cluster info --brokers 127.0.0.1:57267,127.0.0.1:57268,127.0.0.1:57263
+
+You may also set an environment variable with the comma-separated list of broker addresses:
+
+  export REDPANDA_BROKERS="127.0.0.1:57267,127.0.0.1:57268,127.0.0.1:57263"
+  rpk cluster info
