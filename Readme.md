@@ -160,3 +160,33 @@ turn off
 ### Details on how to load data into the database
 
 * [query.md](https://github.com/stormasm/ioxnotes/blob/main/query.md)
+
+### And finally modify this code to reduce 5 minutes to 30 seconds
+
+clap_blocks/src/ingester.rs
+
+```rust
+/// If a partition has had data buffered and hasn't received a write for this
+/// period of time, it will be persisted. The default value is 300 seconds (5 minutes).
+#[clap(
+    long = "--persist-partition-cold-threshold-seconds",
+    env = "INFLUXDB_IOX_PERSIST_PARTITION_COLD_THRESHOLD_SECONDS",
+    default_value = "30",
+    action
+)]
+pub persist_partition_cold_threshold_seconds: u64,
+```
+
+influxdb_iox/src/commands/run/all_in_one.rs
+
+```rust
+/// If a partition has had data buffered and hasn't received a write for this
+/// period of time, it will be persisted. The default value is 300 seconds (5 minutes).
+#[clap(
+    long = "--persist-partition-cold-threshold-seconds",
+    env = "INFLUXDB_IOX_PERSIST_PARTITION_COLD_THRESHOLD_SECONDS",
+    default_value = "30",
+    action
+)]
+pub persist_partition_cold_threshold_seconds: u64,
+```
