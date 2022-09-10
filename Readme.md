@@ -192,3 +192,9 @@ influxdb_iox/src/commands/run/all_in_one.rs
 )]
 pub persist_partition_cold_threshold_seconds: u64,
 ```
+
+or more simply add this line to your .iox file
+
+```rust
+export INFLUXDB_IOX_PERSIST_PARTITION_COLD_THRESHOLD_SECONDS='30'
+```
