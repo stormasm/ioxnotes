@@ -6,6 +6,13 @@ ioxd
 minio server ./data
 ```
 
+##### mc - MinIO Client for object storage and filesystems.
+
+```rust
+ioxd
+mc ls
+```
+
 go to [http://localhost:9000](http://localhost:9000)      
 login with minioadmin / minioadmin    
 and create a bucket called **lowcard**
