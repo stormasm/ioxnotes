@@ -24,11 +24,11 @@ alias ioxaws='cargo run --features aws -- run all-in-one --object-store s3 --aws
 
 Command-line Access: https://docs.min.io/docs/minio-client-quickstart-guide
 
-Object API (Amazon S3 compatible):
-Go:         https://docs.min.io/docs/golang-client-quickstart-guide
-Java:       https://docs.min.io/docs/java-client-quickstart-guide
-Python:     https://docs.min.io/docs/python-client-quickstart-guide
-JavaScript: https://docs.min.io/docs/javascript-client-quickstart-guide
+Object API (Amazon S3 compatible):  
+Go:         https://docs.min.io/docs/golang-client-quickstart-guide  
+Java:       https://docs.min.io/docs/java-client-quickstart-guide  
+Python:     https://docs.min.io/docs/python-client-quickstart-guide  
+JavaScript: https://docs.min.io/docs/javascript-client-quickstart-guide  
 .NET:       https://docs.min.io/docs/dotnet-client-quickstart-guide
 
 Talk to the community: https://slack.min.io  
