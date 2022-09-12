@@ -27,6 +27,10 @@ export AWS_ENDPOINT="http://localhost:9000"
 alias ioxaws='cargo run --features aws -- run all-in-one --object-store s3 --aws-endpoint http://localhost:9000 --bucket lowcard --aws-allow-http --log-filter debug,compactor=error'
 ```
 
+### References
+
+[Rust Client for Minio](https://github.com/minio/minio-rs)
+
 ### From homebrew installation
 
 Command-line Access: https://docs.min.io/docs/minio-client-quickstart-guide
