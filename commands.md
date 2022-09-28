@@ -30,5 +30,6 @@ alias ioxpartolp='iox debug parquet-to-lp'
 ### aliases
 
 ```rust
+alias ioxg='cd ~/j/tmp06/influxdb_iox'
 alias iox='ioxg; ./target/debug/influxdb_iox'
 ```
