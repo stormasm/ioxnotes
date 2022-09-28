@@ -1,3 +1,6 @@
+
+[Iox Commands](https://github.com/stormasm/ioxnotes/blob/main/commands.md)
+
 Everytime you update
 [stormasm/influxdb_iox](https://github.com/stormasm/influxdb_iox)
 
