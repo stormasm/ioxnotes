@@ -1,4 +1,16 @@
 
+### query_tests
+
+```rust
+cnr cases::     This takes the most time
+cnr influxrpc::
+cnr runner::
+cnr sql::
+cnr table_schema::
+```
+
+### general testing notes
+
 For more info on testing
 [read this doc first](https://github.com/influxdata/influxdb_iox/blob/main/docs/testing.md)
 
