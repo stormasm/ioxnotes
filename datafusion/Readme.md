@@ -1,6 +1,10 @@
 
 ### How collect works
 
+```rust
+rg "pub async fn collect"
+```
+
 dataframe.rs
 ```rust
 impl DataFrame
