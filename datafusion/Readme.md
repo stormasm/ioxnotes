@@ -3,7 +3,7 @@
 
 ```rust
 rg 'impl TableProvider'
-rg create_physical_plan'
+rg create_physical_plan
 ```
 
 in datafusion/core/src
