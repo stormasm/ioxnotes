@@ -1,4 +1,12 @@
 
+### How TableProvider works
+
+```rust
+rg 'impl TableProvider'
+```
+
+in datafusion/core/src
+
 ### How collect works
 
 ```rust
