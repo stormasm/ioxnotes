@@ -3,6 +3,9 @@
 
 * sql_statement_to_plan
 * query_to_plan
+* query_to_plan_with_alias
+* set_expr_to_plan
+* select_to_plan
 * sql_expr_to_logical_expr
 * aggregate_fn_to_expr
 
