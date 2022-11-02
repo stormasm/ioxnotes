@@ -1,4 +1,11 @@
 
+### aggregate_fn_to_expr
+
+* sql_statement_to_plan
+* query_to_plan
+* sql_expr_to_logical_expr
+* aggregate_fn_to_expr
+
 ### How TableProvider works
 
 ```rust
