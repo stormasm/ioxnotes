@@ -1,5 +1,5 @@
 
-### ex04.rs: Select a, b from example order by b desc
+### ex04.rs: select a, b from example order by b desc
 
 ```rust
 logical_plan: 
