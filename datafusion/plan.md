@@ -12,3 +12,5 @@ SortExec: [b@1 DESC]
     CsvExec: files=[Users/ma/j/tmp06/rust-examples/datafusion/data/red0.csv],
                has_header=true, limit=None, projection=[a, b]
 ```
+
+[For more details](https://github.com/stormasm/rust-examples/tree/main/datafusion)
