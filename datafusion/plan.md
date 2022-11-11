@@ -28,3 +28,7 @@ ProjectionExec: expr=[a@0 as a, f@1 as f]
 ```
 
 [For more details](https://github.com/stormasm/rust-examples/tree/main/datafusion)
+
+### References
+
+https://www.sqlitetutorial.net/
