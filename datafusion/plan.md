@@ -13,4 +13,18 @@ SortExec: [b@1 DESC]
                has_header=true, limit=None, projection=[a, b]
 ```
 
+### ex05.rs: Select a, f from example where f > 15
+
+```rust
+logical plan:
+Projection: example.a, example.f    
+  Filter: example.f > Int64(15)   
+    TableScan: example projection=[a, f], partial_filters=[example.f > Int64(15)] 
+physical plan:
+ProjectionExec: expr=[a@0 as a, f@1 as f]     
+  FilterExec: f@1 > 15    
+    CsvExec: files=[Users/ma/j/tmp06/rust-examples/datafusion/data/red0.csv],
+               has_header=true, limit=None, projection=[a, f] 
+```
+
 [For more details](https://github.com/stormasm/rust-examples/tree/main/datafusion)
