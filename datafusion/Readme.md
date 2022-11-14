@@ -1,4 +1,11 @@
 
+### Slack: Arrow-Rust
+
+* channel started on March 10, 2021
+* [First Message](https://the-asf.slack.com/archives/C01QUFS30TD/p1615401105000200)
+
+# Move everything below here somewhere else
+
 ### planner.rs : aggregate_fn_to_expr
 
 * sql_statement_to_plan
