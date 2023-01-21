@@ -1,4 +1,7 @@
 
+### Setup of Datafusion including testing
+
+* [setup.md](./setup.md)
 
 ### Performance of Polars versus Datafusion
 
