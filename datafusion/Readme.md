@@ -45,6 +45,10 @@ impl DataFrame
     pub async fn collect(&self)
 ```
 
+The collect inside dataframe.rs calls create_physical_plan which which calls into the SessionStates create_physical_plan which creates a physical plan from a logical plan that is defined inside the dataframe.
+
+This physical plan which then gets created calls the collect inside physical_plan/mod.rs which calls execute_stream inside physical_plan/mod.rs which calls execute on the ExecutionPlan...
+
 physical_plan/mod.rs
 ```rust
     pub async fn collect
@@ -54,3 +58,4 @@ physical_plan/common.rs
 ```rust
     pub async fn collect
 ```
+
