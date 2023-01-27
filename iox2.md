@@ -25,7 +25,7 @@ Run compactor2
 INFLUXDB_IOX_RPC_MODE=2 ./target/debug/influxdb_iox run compactor2 --api-bind 127.0.0.1:8084 --grpc-bind 127.0.0.1:8088 --catalog-dsn postgres:///iox_shared --object-store=file --data-dir=/tmp/iox/obj -v
 ```
 
-Then to send in data go to the [lowcard](https://github.com/stormasm/low_card) and send in some data by running this command.
+Then to send in data go to [lowcard](https://github.com/stormasm/low_card) and send in some data by running this command.
 
 ```rust
 cargo run
