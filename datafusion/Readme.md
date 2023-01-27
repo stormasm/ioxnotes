@@ -20,7 +20,9 @@ rg datafusion::
 * ingester
 * ingester2
 * iox_query
+* parquet_file
 * predicate
+* querier
 * query_functions
 * query_tests
 * service_common
