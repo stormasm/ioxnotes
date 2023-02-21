@@ -204,6 +204,10 @@ export INFLUXDB_IOX_PERSIST_PARTITION_COLD_THRESHOLD_SECONDS='30'
 
 ### How is data organized
 
+Data is both HOT and COLD.  The hot data is in memory and represents 
+seconds, minutes, hours...  The cold data is in object store and represents weeks, months and years.  Data in memory is optimized for low latency while
+the data in object storage is optimized for lowest cost long term storage.
+
 * database (bucket)
 * tables
 * partitions
