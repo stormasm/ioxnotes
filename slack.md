@@ -21,22 +21,23 @@ We have found writing parquet with datafusion is fairly easy , which might be wo
 
 ### Kafka is being removed from the Ingester pipeline
 
-I was wondering if someone could provide a high-level of what the relationship is between shards, partitions, and kafka topics? It seems to me that a shard is supposed to map 1:1 to a kafka partition, and that a given namespace should be entirely on one kafka topic. But, I'm not sure if that's the correct way to understand things... (also, it looks like the ingester2 work gets rid of kafka entirely and that's exciting to me :laughing: ) (edited) 
+I was wondering if someone could provide a high-level of what the relationship is between shards, partitions, and kafka topics? It seems to me that a shard is supposed to map 1:1 to a kafka partition, and that a given namespace should be entirely on one kafka topic. But, I'm not sure if that's the correct way to understand things... (also, it looks like the ingester2 work gets rid of kafka entirely and that's exciting to me.
+
 4 replies
 
-pauldix
+pauldix   
 heh, I could explain the Kafka mapping, but it would be a waste of time as you've properly sniffed out that we're removing Kafka from the ingestion pipeline.
 
 The new model has no shards. A write can go to any ingester so they scale horizontally. The compactor will pick up the persisted Parquet files to rewrite them for query performance.
 
-pauldix
-2 months ago as of 2/21/2023
+pauldix   
 Partitions are still very much a thing. For now they're fixed at 1d (YYYY-MM-DD) within each table (measurement). It's on the roadmap to let users set the partition rules per table so that they can split up their data. Partitioning is useful for splitting up chunks of data to make query workloads faster. Partitions get pruned from query execution during planning time. They'll likely also be useful for very high throughput tables to split the data up.
 
 That make sense! For context, I'm trying to stand up clusters to see how it handles ingesting our tracing firehose, and I was trying to figure out "how many shards should I start with, and how easy is it to add more"?
 I think that if we went forward using it in production, we'd wait until after the kafka removal is finished, this is more for experimentation. :smile:
 
 It's on the roadmap to let users set the partition rules per table so that they can split up their data.
+
 I was able to see some support for it, yeah - and then I saw where it was hard-coded to one day
 
 ### How does indexing work in Iox
@@ -49,7 +50,7 @@ There's no real indexing in IOx. Data is organized into tables (measurement in I
 Queries narrow down to the parquet files that need to be queried and execute in brute force across those.
 
 ```rust
-So it would actually be <db>//<table>//<yyyy-mm-dd>//<chunk id>.parquet
+So it would actually be <db>/<table>/<yyyy-mm-dd>/<chunk id>.parquet
 ```
 
 btw, we already do some metadata indexing to avoid querying all parquet files. In the Catalog we keep the min and max times of the data in each parquet file. Time is the most effective discriminate for queries with our users so we keep that handy to rule out most parquet files without having to read them (or their metadata) to process a query
