@@ -223,5 +223,8 @@ aged data.
 The parquet files contains the compressed data in columnar format.  The Compactor manages the size and count of parquet files by not allowing them
 to be too big or too many.
 
+the at-rest data format is Parquet (stored in S3)   
+the in-memory data structures are Arrow   
+the query protocol is FlightSQL   
 
-
+The big difference between TSM and IOX, in terms of "data layout", is what a physical column represents. TSM stores and handles series as columns (1000 series => 1000 columns on disk and 1000 columns in memory), where IOx stores and handles timestamps, fields and tags as columns (1 timestamp, 10 tags, 20 columns => 31 columns on disk and 31 columns in memory).
