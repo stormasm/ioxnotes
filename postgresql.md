@@ -45,3 +45,48 @@ async fn test_billing_summary_on_parqet_file_creation() {
     //    initdb pg
     //    createdb iox_shared
 ```
+
+### After Installing with Brew here are the notes
+
+This formula has created a default database cluster with:
+  initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql@15
+For more details, read:
+  https://www.postgresql.org/docs/15/app-initdb.html
+
+postgresql@15 is keg-only, which means it was not symlinked into /opt/homebrew,
+because this is an alternate version of another formula.
+
+If you need to have postgresql@15 first in your PATH, run:
+  echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find postgresql@15 you may need to set:
+  export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
+
+
+To start postgresql@15 now and restart at login:
+  brew services start postgresql@15
+==> Summary
+🍺  /opt/homebrew/Cellar/postgresql@15/15.2: 3,348 files, 45.7MB
+==> Running `brew cleanup postgresql@15`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+==> Caveats
+==> postgresql@15
+This formula has created a default database cluster with:
+  initdb --locale=C -E UTF-8 /opt/homebrew/var/postgresql@15
+For more details, read:
+  https://www.postgresql.org/docs/15/app-initdb.html
+
+postgresql@15 is keg-only, which means it was not symlinked into /opt/homebrew,
+because this is an alternate version of another formula.
+
+If you need to have postgresql@15 first in your PATH, run:
+  echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find postgresql@15 you may need to set:
+  export LDFLAGS="-L/opt/homebrew/opt/postgresql@15/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/postgresql@15/include"
+
+To start postgresql@15 now and restart at login:
+  brew services start postgresql@15
