@@ -201,3 +201,23 @@ or more simply add this line to your .iox file
 ```rust
 export INFLUXDB_IOX_PERSIST_PARTITION_COLD_THRESHOLD_SECONDS='30'
 ```
+
+### How is data organized
+
+* database (bucket)
+* tables
+* partitions
+* parquet files
+
+Database is the top level entity in Iox 
+
+Databases contain one or more tables representing measurement.  All data within a table has the same schema
+
+Tables contain collections of partitions.  partitions are indexed by time.  Used for data lifecycle management.  You can drop whole partitions to evict
+aged data.
+
+The parquet files contains the compressed data in columnar format.  The Compactor manages the size and count of parquet files by not allowing them
+to be too big or too many.
+
+
+

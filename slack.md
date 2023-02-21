@@ -1,5 +1,47 @@
 
 
+### How does indexing work in Iox
+
+Around 2/14/2023
+pauldix
+
+There's no real indexing in IOx. Data is organized into tables (measurement in InfluxDB), which are then split into partitions (by day by default, this will be user settable at some point in the future), and then individual Parquet files in those partitions. The parquet files are compacted in the background so that ideally they reach a certain size and are non-overlapping in the time ranges they contain.
+
+Queries narrow down to the parquet files that need to be queried and execute in brute force across those.
+
+So it would actually be <db>/<table>/<yyyy-mm-dd>/<chunk id>.parquet
+
+btw, we already do some metadata indexing to avoid querying all parquet files. In the Catalog we keep the min and max times of the data in each parquet file. Time is the most effective discriminate for queries with our users so we keep that handy to rule out most parquet files without having to read them (or their metadata) to process a query
+
+totally agree though, data skipping is the best way for these kinds of systems to optimize performance. Our users aren't asking for InfluxDB to churn through the entire data set. It's frequently a needle in a haystack kind of query
+
+and I couldn't find anything about the metadata indexing you've mentioned, have you documented it somewhere?
+
+We don't have it documented anywhere at this point. If you're trolling through the code it's the catalog that keeps that basic info (what tables exists, partitions, then parquet files beneath them. This is the relevant definition for what we keep on parquet files in there:
+
+data_types/src/lib.rs
+
+```rust
+pub struct ParquetFile {
+    /// the id of the file in the catalog
+    pub id: ParquetFileId,
+    /// the shard that sequenced writes that went into this file
+    pub shard_id: ShardId,
+```
+
+### How Iox organizes parquet files in object store
+Around 2/15/2023
+
+How does iox organize the parquet files in object store? parquet file appears like this 1/1/2/10/b4d08c81-0397-46fa-a03c-87455661dd05.parquet
+But what does the first numbers represent? I mean the numbers in the path. 1/1/2/10
+
+Andrew Lamb
+I believe the path is
+namespace_id/table_id/shard_id/partition_id
+see parquet_file/src/lib.rs for more details...
+
+### Legacy Stuff
+
 we have IOx deployed in one of our production environments in the new architecture configuration.
 
 This breaks IOx up into 4 components (router, ingester, querier, compactor) that use Kafka, Postgres (for the catalog), and Object Store as shared infrastructure. This is all open source.
