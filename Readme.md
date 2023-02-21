@@ -228,3 +228,5 @@ the in-memory data structures are Arrow
 the query protocol is FlightSQL   
 
 The big difference between TSM and IOX, in terms of "data layout", is what a physical column represents. TSM stores and handles series as columns (1000 series => 1000 columns on disk and 1000 columns in memory), where IOx stores and handles timestamps, fields and tags as columns (1 timestamp, 10 tags, 20 columns => 31 columns on disk and 31 columns in memory).
+
+IOx does have a write-ahead log, and the data in the WAL is queryable as soon it lands in the WAL.
