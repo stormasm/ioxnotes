@@ -48,7 +48,7 @@ There's no real indexing in IOx. Data is organized into tables (measurement in I
 
 Queries narrow down to the parquet files that need to be queried and execute in brute force across those.
 
-So it would actually be <db>/<table>/<yyyy-mm-dd>/<chunk id>.parquet
+So it would actually be <db>//<table>//<yyyy-mm-dd>//<chunk id>.parquet
 
 btw, we already do some metadata indexing to avoid querying all parquet files. In the Catalog we keep the min and max times of the data in each parquet file. Time is the most effective discriminate for queries with our users so we keep that handy to rule out most parquet files without having to read them (or their metadata) to process a query
 
