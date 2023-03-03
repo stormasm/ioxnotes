@@ -1,4 +1,8 @@
 
+[Nushell Iox Legacy 2022 July Instructions for Integration](./nushell-iox-2022-july.md)
+
+[Link to Copy of Above](https://github.com/stormrust/influxdb_iox/tree/stormasm/nushell/iox_nu)
+
 [Iox Commands](https://github.com/stormasm/ioxnotes/blob/main/commands.md)
 
 Everytime you update
