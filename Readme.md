@@ -15,16 +15,16 @@ For more details see...
 ```rust
 alias ioxg='cd ~/j/tmp06/influxdb_iox'
 
-### Start up Iox
+### Start up iox
 alias iox='ioxg; ./target/debug/influxdb_iox'
 
-### Write to Iox
+### Write to iox
 alias iox01='iox -vv write company_sensors test_fixtures/lineproto/metrics.lp --host http://localhost:8080'
 
-### Read from or Query Iox
+### Read from or Query iox
 alias iox02='iox query company_sensors "SELECT * FROM cpu LIMIT 10"'
 
-### print iox help
+### print iox Help
 alias ioxh='ioxg; ./target/debug/influxdb_iox --help'
 ```
 
