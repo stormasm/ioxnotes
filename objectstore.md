@@ -3,6 +3,7 @@ To see where object_store is happening do a
 
 ```rust
 rg DynObjectStore
+rg ObjectStoreConfig
 ```
 
 #### Relevant crates for object_store
