@@ -21,8 +21,10 @@ brew doctor
 ```
 
 ```rust
-brew install postgres
-brew services start postgresql
+brew update
+brew install postgresql@15
+brew services start postgresql@15
+brew services restart postgresql@15
 ```
 
 #### Ref
