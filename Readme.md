@@ -14,8 +14,14 @@ For more details see...
 
 ```rust
 alias ioxg='cd ~/j/tmp06/influxdb_iox'
+
+### Start up Iox
 alias iox='ioxg; ./target/debug/influxdb_iox'
+
+### Write to Iox
 alias iox01='iox -vv write company_sensors test_fixtures/lineproto/metrics.lp --host http://localhost:8080'
+
+### Read from or Query Iox
 alias iox02='iox query company_sensors "SELECT * FROM cpu LIMIT 10"'
 
 ### print iox help
