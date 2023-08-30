@@ -6,6 +6,7 @@ iox
 iox01
 iox02
 ```
+For more details see the [Readme](https://github.com/influxdata/influxdb_iox#write-and-read-data)
 
 ### Aliases
 
