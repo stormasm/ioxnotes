@@ -17,6 +17,9 @@ alias ioxg='cd ~/j/tmp06/influxdb_iox'
 alias iox='ioxg; ./target/debug/influxdb_iox'
 alias iox01='iox -vv write company_sensors test_fixtures/lineproto/metrics.lp --host http://localhost:8080'
 alias iox02='iox query company_sensors "SELECT * FROM cpu LIMIT 10"'
+
+### print iox help
+alias ioxh='ioxg; ./target/debug/influxdb_iox --help'
 ```
 
 ### Historical Note
