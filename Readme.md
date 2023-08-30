@@ -36,7 +36,9 @@ TEST_INTEGRATION=1 TEST_INFLUXDB_IOX_CATALOG_DSN=sqlite cargo test --test end_to
 
 For more details on [testing](https://github.com/influxdata/influxdb_iox/blob/main/docs/testing.md).
 
-### Documents of Interest (to check out further in the future)
+### Documents of Interest
+
+(to check out further in the future)
 
 * [debug.md](https://github.com/influxdata/influxdb_iox/blob/main/docs/debug.md)
 
