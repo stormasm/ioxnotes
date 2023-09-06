@@ -1,3 +1,18 @@
+
+Influxdb was crashing inside nushell when the std-lib was turned on...
+
+[see this issue](https://github.com/nushell/nushell/issues/10248)
+
+this was proven out by changing
+
+```rust
+LOG_FORMAT to IOX_LOG_FORMAT
+```
+
+inside *trogging/src/cli.rs*
+
+then iox came up fine with no issues
+
 Iox with logging, note the run all-in-one is needed for logging to work
 
 ```rust
