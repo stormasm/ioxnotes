@@ -1,4 +1,25 @@
 
+##### Turn off debug logging in noisy compactor
+
+This was closed out with my [PR](https://github.com/influxdata/influxdb_iox/pull/8684)
+
+*compactor/src/components/compaction_jobs_source/logging.rs*
+
+make this a trace! statement
+
+```rust
+async fn fetch(&self) -> Vec<CompactionJob> {
+    let jobs = self.inner.fetch().await;
+    info!(n_jobs = jobs.len(), "Fetch jobs",);
+    if jobs.is_empty() {
+        trace!("No compaction job found");
+    }
+    jobs
+}
+```
+
+### nushell std-lib bug
+
 Influxdb was crashing inside nushell when the std-lib was turned on...
 
 [see this issue](https://github.com/nushell/nushell/issues/10248)
@@ -13,6 +34,8 @@ inside *trogging/src/cli.rs*
 
 then iox came up fine with no issues
 
+### All-in-one
+
 Iox with logging, note the run all-in-one is needed for logging to work
 
 ```rust
@@ -22,22 +45,6 @@ alias ioxdebug='iox run all-in-one --log-filter debug'
 ### No h2 logging
 
 alias ioxdebugnoh2='iox run all-in-one --log-filter debug,hyper::proto::h1=info,h2=info'
-```
-
-##### Turn off debug logging in noisy compactor
-
-```rust
-ingester/src/stream_handler/periodic_watermark_fetcher.rs
-147: debug!("fetching write buffer watermark");
-
-compactor/src/handler.rs
-177: debug!(n_candidates, "found compaction candidates");
-
-compactor/src/compact.rs
-342: debug!(
-    candidate_num = candidates.len(),
-    "Number of candidate partitions to be considered to compact"
-);
 ```
 
 For more details on logging
