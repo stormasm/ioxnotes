@@ -21,6 +21,7 @@ rm -fr *
 ```
 
 For more details see...
+* [Integrating with Nushell](./nushell)
 * [Readme](https://github.com/influxdata/influxdb_iox#write-and-read-data)
 * [env.example](https://github.com/influxdata/influxdb_iox/blob/main/docs/env.example)
 * [Legacy iox Readme](https://github.com/stormasm/ioxnotes/blob/main/legacy-Readme.md)
