@@ -7,6 +7,11 @@ iox01
 iox02
 ```
 
+### To add a second database to query
+
+iox01nm
+iox02nm
+
 ### To clear everything out and start over
 
 ```rust
