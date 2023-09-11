@@ -6,6 +6,15 @@ iox
 iox01
 iox02
 ```
+
+### To clear everything out and start over
+
+```rust
+cd
+cd .influxdb_iox
+rm -fr *
+```
+
 For more details see...
 * [Readme](https://github.com/influxdata/influxdb_iox#write-and-read-data)
 * [env.example](https://github.com/influxdata/influxdb_iox/blob/main/docs/env.example)
