@@ -1,4 +1,47 @@
 
+### Side by Side comparison of Influx 2.0 versus 3.0
+
+main differences are:
+
+* 3.0 does not support the v2 api ... that means, no Tasks, no Flux, no Dashboards, etc... it's just a database
+* 3.0 DOES support the 1.0 query api, and both the 1.0 and 2.0 write APIs
+* 3.0 DOES support SQL via flight, so, by extension supports Arrow
+* 3.0 is well supported by Grafana, Superset, and Tableau desktop
+
+in summary, 3.0 has much more efficient ingest, much more efficient data compression, and in most cases better query performance
+
+the data compression and the fact that it uses Object Storage instead of attached disks adds up to much much cheaper storage costs
+
+I think of tags as categorical variables, I don't quite understand what you mean by "the mean of all tag values", can you please explain?
+
+By series , I have understood the definition of series to be as follows, a unique combination of measurement, tag set and field keys, is this correct?
+
+rickspencer3
+  14 days ago
+that is correct about series
+
+let's say I am collecting data that has 2 tags, sensor_id, and location_id:
+
+```sql
+select mean(field1) from measurement1
+WHERE sensor_id = 'a' and location_id = 'b'
+AND time > now() - 1y
+```
+
+that is selecting from a specific set of tag values, and is pretty much what 1.0 and 2.0 are designed for, so this will be noticeably faster in 1.0 and 2.0 compared to 3.0 (assuming a large data set)
+
+but ...
+
+```sql
+select mean(field1) from measurement1
+AND time > now() - 1y
+```
+
+will be very fast in 3.0, but very slow in 1.0 and 2.0
+
+There are techniques, specifically Custom Partitioning, that can make the first query much faster in 3.0, but that is only available in InfluxDB Cloud Dedicated and InfluxDB 3.0 Clustered (just announced today, btw)
+
+[Influx Data Model](https://awesome.influxdata.com/docs/part-2/influxdb-data-model/)
 
 ### Random Sampling
 
