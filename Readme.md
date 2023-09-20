@@ -25,6 +25,7 @@ For more details see...
 * [Readme](https://github.com/influxdata/influxdb_iox#write-and-read-data)
 * [env.example](https://github.com/influxdata/influxdb_iox/blob/main/docs/env.example)
 * [Legacy iox Readme](https://github.com/stormasm/ioxnotes/blob/main/legacy-Readme.md)
+* [InfluxDB 3.0: System Architecture](https://www.influxdata.com/blog/influxdb-3-0-system-architecture/)
 
 ### Aliases
 
