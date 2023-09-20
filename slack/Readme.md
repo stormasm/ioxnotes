@@ -9,3 +9,4 @@
 
 * [Influx Community Python Et al](https://github.com/InfluxCommunity)
 * [Influxdb Observability](https://github.com/influxdata/influxdb-observability)
+* [Iox 3 Builds by a Third Party](https://github.com/metrico/iox-community)
