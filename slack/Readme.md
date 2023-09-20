@@ -7,5 +7,5 @@
 
 ### Code
 
-[Influx Community Python Et al](https://github.com/InfluxCommunity)
-[Influxdb Observability](https://github.com/influxdata/influxdb-observability)
+* [Influx Community Python Et al](https://github.com/InfluxCommunity)
+* [Influxdb Observability](https://github.com/influxdata/influxdb-observability)
