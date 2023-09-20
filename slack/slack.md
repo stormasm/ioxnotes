@@ -4,8 +4,8 @@
 
 Hi there, we do have a use case were we want to generate a sample from our data in influx. According to the documentation, there are currently selectors for min, max, first, and last. Are there any plans to add a random selector to it (or maybe this already exists but is not documented yet)?
 
-Marco Neumann
-  5 days ago
+Marco Neumann, 5 days ago
+
 For SQL, you have two options depending on the type of sampling you wanna perform:
 
 1) probabilistic sampling: SELECT ... FROM ... WHERE random() < p (p being your probability in [0, 1))
