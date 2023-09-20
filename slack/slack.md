@@ -1,5 +1,38 @@
 
 
+### Random Sampling
+
+Hi there, we do have a use case were we want to generate a sample from our data in influx. According to the documentation, there are currently selectors for min, max, first, and last. Are there any plans to add a random selector to it (or maybe this already exists but is not documented yet)?
+
+Marco Neumann
+  5 days ago
+For SQL, you have two options depending on the type of sampling you wanna perform:
+
+1) probabilistic sampling: SELECT ... FROM ... WHERE random() < p (p being your probability in [0, 1))
+
+2) fixed-size sampling: For that we don't have a good story yet. You CAN use SELECT ... FROM ... ORDER BY random() LIMIT n (n being the maximum result size) but it will NOT perform very well. It basically reshuffles the entire data just to pick a few entries from the top. We know that this is something that people wanna do, so my guess is that eventually we will improve that (either by special optimizing that particular plan or by offering you a different tool / mechanism / query pattern to achieve that).
+
+### 3.0 Data Model
+by Rick Spencer
+
+We started by rethinking the data model from the ground up. While we retain the notion of separating data into databases, rather than persisting time series, 3.0 persists data by table, where “table” is another name for “measurement” in InfluxDB 1.0 and 2.0 parlance.
+
+Each table is sharded on disk by day and persisted in the Parquet file format. Therefore if you visualize the data on disk, it looks like a set of Parquet files, where each one represents one day of data for a single measurement. There is a caveat: each file is limited to 100 megabytes, so there may be multiple files per day for heavy users.
+
+<graphic here? Show tables sharded by day>
+
+InfluxDB 3.0 retains the notion of tags and fields, however, they play a different role in 3.0. Namely, a unique set of tag values and a time stamp identifies a row so that it can be updated by an UPSERT on write.
+
+Understanding the new data model allows us to go on to discuss ingest efficiency and compression.
+
+Alternate Partitioning Options
+
+InfluxDB 3.0 is designed to perform analytical queries (i.e. queries that summarize across a large number of rows) and the default partitioning scheme is optimized for this. However, for some measurements, the user may wish to always query a subset of tag values. For example, their queries are always for a single customer id or sensor id. TSM is very well suited to such queries because that is how the data is indexed and persisted on disk, but not so with InfluxDB 3.0. As such, using the default partitioning scheme, users may experience a regression in performance for these specific queries.
+
+The solution to this is “custom partitioning.” Custom partitioning allows the user to define a partitioning scheme based on tag keys and tag values, and also tweak the time range for each partition.
+
+In this way, users can come close to achieving the same query performance for these specific query types in 3.0 while retaining the benefits of efficient ingest and compression.
+
 ### Any chance Influx 3.0 will support DML (UPDATE/DELETE) of data with SQL?
 
 paul dix response:   
