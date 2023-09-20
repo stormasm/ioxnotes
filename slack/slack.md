@@ -1,4 +1,14 @@
 
+
+### Any chance Influx 3.0 will support DML (UPDATE/DELETE) of data with SQL?
+
+paul dix response:   
+I don't think in the near or medium term. Can you say more about why you're asking about those features via SQL specifically?
+
+Thanks
+@pauldix
+ - only exploratory at this stage, new to Influx, interested in 3.0/IOx and trying to understand how SQL fits in the picture. We have a requirement to periodically update our time series data so wondered if we can use standard SQL to do so
+
 ### When reading a parquet file produced by IOx, how can tags and fields columns be identified?
 
 9/20/23
